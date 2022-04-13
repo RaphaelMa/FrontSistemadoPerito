@@ -1,0 +1,32 @@
+@import '~antd/dist/antd.less';
+
+@primary-color: '#3CA49E';
+@error-color: '#FF4D4F';
+@highlight-color: '#FF4D4F';
+
+.ant-drawer {
+  .ant-drawer-title, .ant-drawer-close {
+    color: white;
+  }
+
+  .ant-drawer-mask {
+    -webkit-backdrop-filter: blur(2px);
+    backdrop-filter: blur(2px);
+  }
+
+  .ant-drawer-content {
+    // O header tem o border-radius e como é de outra cor, ficava alguns pixels em branco
+    border-radius: 2px 2px 0 0;
+  }
+
+  .ant-drawer-header {
+    background: @primary-color;
+  }
+}
+
+.ant-modal-root {
+  .ant-modal-mask {
+    -webkit-backdrop-filter: blur(2px);
+    backdrop-filter: blur(2px);
+  }
+}
