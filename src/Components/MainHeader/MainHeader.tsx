@@ -279,7 +279,7 @@ const MainHeader: React.FC = () => {
         }
       />
       <AlertsContainer>
-        {moment().format('YYYY-MM-DD') === birthday && (
+        {moment().format('MM-DD') === moment(birthday).format('MM-DD') && (
           <BirthdayMessage>
             <BirthdayMessageContainer>
               Parabéns {name}!! Que todos os seus sonhos sejam realizados e todos os seus desejos sejam alcançados. 🎂 🎉
