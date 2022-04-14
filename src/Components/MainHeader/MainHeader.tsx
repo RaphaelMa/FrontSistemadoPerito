@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom'
 import { theme } from 'Styles/theme'
 import styled from 'styled-components'
 import NotificationIcon from 'Components/NotificationIcon/NotificationIcon'
+import LogoHeader from '../../Assets/logo_header.png'
 import simplur from 'simplur'
 import moment from 'moment';
 
@@ -66,6 +67,9 @@ const MainHeader: React.FC = () => {
         backIcon={false}
         title={
           <MenuStyled>
+
+            <Image src={LogoHeader}/>
+
             <Menu.Item key="dashboard">
               <Link key="dashboard_screen" to="/">Dashboard</Link>
             </Menu.Item>
@@ -294,7 +298,7 @@ const MainHeader: React.FC = () => {
 export default MainHeader
 
 const HeaderStyled = styled(PageHeader)`
-  background: ${p => p.theme.colors.dark_gray};
+  background:#05323c;
   padding: 0;
   width: 100%;
   height: 5rem;
@@ -312,7 +316,7 @@ const MenuStyled = styled(Menu).attrs({
   mode: 'horizontal',
   triggerSubMenuAction: 'click'
 })`
-  background: ${p => p.theme.colors.dark_gray} !important;
+  background:#05323c !important;
   color: ${p => p.theme.colors.white} !important;
   margin: 0;
   border-bottom: none;
@@ -324,6 +328,11 @@ const MenuStyled = styled(Menu).attrs({
   .disabled-label {
     color: ${p => p.theme.colors.light_gray} !important;
   }
+`;
+
+export const Image = styled.img`
+  width: 42px;
+  height: 42px;
 `
 
 const SettingIcon = styled(SettingOutlined)`
