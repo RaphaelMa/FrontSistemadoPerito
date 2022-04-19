@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { buildData, MONTHLY_PRICE, YEARLY_PRICE } from './functions'
-import { message, Spin, Switch, Table } from 'antd'
+import { message, Spin, Switch, Table, Button } from 'antd'
 import { useUserDispatch, useUserSelector } from 'Redux/UserReducer'
 import { Plan } from './types'
 import PaymentMethodModal, { ScheduleModalType } from 'Components/Modals/PaymentMethod/PaymentMethodModal'
@@ -81,28 +81,87 @@ const Plans: React.FC = () => {
   const data = buildData({ prices: internal_yearly ? YEARLY_PRICE : MONTHLY_PRICE })
   const columns = useColumns({ yearly: internal_yearly, handleClickPlan })
 
+  // const dataplan = [
+  //   users: '1 Usuário',
+  // ]
+
   return (
     <>
       <Spin spinning={loading || saving}>
         <Container>
           <Header>
             <Text>Mensal</Text>
-            <SwitchStyled onChange={(value) => setInternalYearly(value)} checked={internal_yearly}/>
+            <SwitchStyled onChange={(value) => setInternalYearly(value)} checked={internal_yearly} />
             <Text>Anual</Text>
           </Header>
 
-          <StyledTable
-            dataSource={data}
-            columns={columns}
-            pagination={{
-              pageSize: 20,
-              hideOnSinglePage: true,
-            }}
-          />
+          {/* <StyledCardPlan>
+            <p style={{ textAlign: 'center', marginLeft: '30px', marginTop: '20px' }}>
+              10 Push Free <br />
+              Dashboard <br />
+              Gestão de Perícias e Assistências <br />
+              Gestão da Agenda <br />
+              Cadastros <br />
+              Relatórios <br />
+            </p>
+            {/* <StyledTable
+              dataSource={data}
+              columns={columns}
+              pagination={{
+                pageSize: 20,
+                hideOnSinglePage: true,
+              }}
+            /> 
+          </StyledCardPlan> */}
+
+          <GridContainer>
+            <StyledCardPlan>
+              <p style={{ textAlign: 'left', marginTop: '20px', fontSize: '20px', marginLeft: '10%', color: 'white' }}>
+                1 Usuário <br />
+                10 Push Free <br />
+                Dashboard <br />
+                Gestão de Perícias e Assistências <br />
+                Gestão da Agenda <br />
+                Cadastros <br />
+                Relatórios <br />
+              </p>
+              <Button className="buttonstyle">
+                Salvar
+              </Button>
+            </StyledCardPlan>
+            <StyledCardPlan>
+              <p style={{ textAlign: 'left', marginTop: '20px', fontSize: '20px', marginLeft: '10%', color: 'white' }}>
+                1 Usuário <br />
+                10 Push Free <br />
+                Dashboard <br />
+                Gestão de Perícias e Assistências <br />
+                Gestão da Agenda <br />
+                Cadastros <br />
+                Relatórios <br />
+              </p>
+              <Button className="buttonstyle">
+                Salvar
+              </Button>
+            </StyledCardPlan>
+            <StyledCardPlan>
+              <p style={{ textAlign: 'left', marginTop: '20px', fontSize: '20px', marginLeft: '10%', color: 'white' }}>
+                1 Usuário <br />
+                10 Push Free <br />
+                Dashboard <br />
+                Gestão de Perícias e Assistências <br />
+                Gestão da Agenda <br />
+                Cadastros <br />
+                Relatórios <br />
+              </p>
+              <Button className="buttonstyle">
+                Salvar
+              </Button>
+            </StyledCardPlan>
+          </GridContainer>
         </Container>
       </Spin>
 
-      <PaymentMethodModal ref={PaymentMethodRef}/>
+      <PaymentMethodModal ref={PaymentMethodRef} />
     </>
   )
 }
@@ -113,7 +172,51 @@ const Container = styled.div`
   padding: 0 15%;
   height: 100%;
   overflow-y: auto;
-`
+`;
+
+// const ButtonStyle = styled.button`
+
+// `;
+
+const GridContainer = styled.div` 
+  /* margin-left: 20%; */
+  display: grid;
+  height: 100%;
+  align-content: center;
+  align-items: center;
+  grid-template-columns: auto auto auto;
+  gap: 10px;
+  background-color: white;
+  padding: 10px;
+
+  .buttonstyle {
+    margin-top: 25%;
+    margin-left: 5.7%;
+    position: absolute;
+    padding: 20px 10px;
+    width: 10%;
+    text-align: center;
+    padding-top: 20px;
+    border-radius: 10px;
+  }
+`;
+
+const StyledCardPlan = styled.div`  
+  display: flex;
+  width: 280px;
+  height: 385px;
+  background-color: #36bdc1;
+  //box-shadow: 0 0px 7px rgba(53, 58, 65, 0.2);
+  border-radius: 20px;
+  justify-content: space-between;
+  transition: box-shadow .3s;
+  margin-bottom: 10%;
+
+  &:hover {
+    cursor: pointer;
+    box-shadow: 0 0px 30px #1793ae7e;
+  }
+`;
 
 const Header = styled.div`
   display: flex;

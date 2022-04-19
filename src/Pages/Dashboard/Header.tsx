@@ -22,29 +22,29 @@ const Header: React.FC<Props> = ({ total_process, indicators, process_monitoring
 
   return (
     <MainContainer>
-        <StyledCard>
-          <Link style={{ display: 'flex'}} to="/process-list">
+      <StyledCard>
+        <Link style={{ display: 'flex' }} to="/process-list">
 
           <div className="icon">
-            <Icon src={law_image} alt="Total de processos"/>
+            <Icon src={law_image} alt="Total de processos" />
           </div>
-          </Link>
+        </Link>
 
-          <div className="info">
-            <div className="title">Processos</div>
-              {total_process}
-          </div>
-            
-        </StyledCard>
-        <StyledCard>
-          <div className="icon">
-            <Icon src={push_image} alt="Push ativos"/>
-          </div>
-          <div className="info">
-            <div className="title">Push ativos</div>
-            {process_monitoring}
-          </div>
-        </StyledCard>
+        <div className="info">
+          <div className="title">Processos</div>
+          {total_process}
+        </div>
+
+      </StyledCard>
+      <StyledCard>
+        <div className="icon">
+          <Icon src={push_image} alt="Push ativos" />
+        </div>
+        <div className="info">
+          <div className="title">Push ativos</div>
+          {process_monitoring}
+        </div>
+      </StyledCard>
       {/* <StyledCard>
         <div className="icon">
           <Icon src={money_image} alt="Honorários"/>
@@ -57,7 +57,7 @@ const Header: React.FC<Props> = ({ total_process, indicators, process_monitoring
       <StyledCard>
         <Link to="/schedule">
           <div className="icon">
-            <Icon src={search_icon} alt="Perícias do dia"/>
+            <Icon src={search_icon} alt="Perícias do dia" />
           </div>
         </Link>
         <div className="info">
