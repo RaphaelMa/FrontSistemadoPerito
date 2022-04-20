@@ -94,29 +94,22 @@ const Plans: React.FC = () => {
             <SwitchStyled onChange={(value) => setInternalYearly(value)} checked={internal_yearly} />
             <Text>Anual</Text>
           </Header>
-
-          {/* <StyledCardPlan>
-            <p style={{ textAlign: 'center', marginLeft: '30px', marginTop: '20px' }}>
-              10 Push Free <br />
-              Dashboard <br />
-              Gestão de Perícias e Assistências <br />
-              Gestão da Agenda <br />
-              Cadastros <br />
-              Relatórios <br />
-            </p>
-            {/* <StyledTable
-              dataSource={data}
-              columns={columns}
-              pagination={{
-                pageSize: 20,
-                hideOnSinglePage: true,
-              }}
-            /> 
-          </StyledCardPlan> */}
-
           <GridContainer>
+
+            {/* <StyledTable
+            dataSource={data}
+            columns={columns}
+            pagination={{
+              pageSize: 20,
+              hideOnSinglePage: true,
+            }}
+          />  */}
+
             <StyledCardPlan>
-              <p style={{ textAlign: 'left', marginTop: '20px', fontSize: '20px', marginLeft: '10%', color: 'white' }}>
+              <Bnaaer>
+                <h2>START</h2>
+              </Bnaaer>
+              <p style={{ textAlign: 'left', marginTop: '50px', fontSize: '15px', marginLeft: '10%', color: 'white' }}>
                 1 Usuário <br />
                 10 Push Free <br />
                 Dashboard <br />
@@ -125,37 +118,52 @@ const Plans: React.FC = () => {
                 Cadastros <br />
                 Relatórios <br />
               </p>
-              <Button className="buttonstyle">
-                Salvar
-              </Button>
+              <ButtonStyle type="submit">
+                Contratar
+              </ButtonStyle>
+            </StyledCardPlan>
+
+            <StyledCardPlan>
+              <Bnaaer>
+                <h2>BASIC</h2>
+              </Bnaaer>
+              <p style={{ textAlign: 'left', marginTop: '50px', fontSize: '15px', marginLeft: '10%', color: 'white' }}>
+                2 Usuários <br />
+                20 Push Free <br />
+                Dashboard <br />
+                Gestão de Perícias e Assistências <br />
+                Gestão da Agenda <br />
+                Cadastros <br />
+                Relatórios <br />
+                Gestão de Tarefas <br />
+                Anexo de Arquivos <br />
+              </p>
+              <ButtonStyle type="submit">
+                Contratar
+              </ButtonStyle>
+
             </StyledCardPlan>
             <StyledCardPlan>
-              <p style={{ textAlign: 'left', marginTop: '20px', fontSize: '20px', marginLeft: '10%', color: 'white' }}>
-                1 Usuário <br />
-                10 Push Free <br />
+              <Bnaaer>
+                <h2>PRO</h2>
+              </Bnaaer>
+              <p style={{ textAlign: 'left', marginTop: '50px', fontSize: '15px', marginLeft: '10%', color: 'white' }}>
+                4 Usuários <br />
+                40 Push Free <br />
                 Dashboard <br />
                 Gestão de Perícias e Assistências <br />
                 Gestão da Agenda <br />
                 Cadastros <br />
                 Relatórios <br />
+                Gestão de Tarefas <br />
+                Anexo de Arquivos <br />
+                Gestão Financeira <br />
+                Gestão de Prazos <br />
+                Criação de Documentos "EM BREVE" <br />
               </p>
-              <Button className="buttonstyle">
-                Salvar
-              </Button>
-            </StyledCardPlan>
-            <StyledCardPlan>
-              <p style={{ textAlign: 'left', marginTop: '20px', fontSize: '20px', marginLeft: '10%', color: 'white' }}>
-                1 Usuário <br />
-                10 Push Free <br />
-                Dashboard <br />
-                Gestão de Perícias e Assistências <br />
-                Gestão da Agenda <br />
-                Cadastros <br />
-                Relatórios <br />
-              </p>
-              <Button className="buttonstyle">
-                Salvar
-              </Button>
+              <ButtonStyle type="submit">
+                Contratar
+              </ButtonStyle>
             </StyledCardPlan>
           </GridContainer>
         </Container>
@@ -174,9 +182,44 @@ const Container = styled.div`
   overflow-y: auto;
 `;
 
-// const ButtonStyle = styled.button`
+const ButtonStyle = styled.button`
+  display: inline;
+  position: absolute;
+  margin-top: 28%;
+  width: 20%;
+  height: 30px; 
+  color: white;
 
-// `;
+  background-color: #3CA49E;
+  border-top: none;
+  border-bottom: none;
+  border-left: none;
+  border-right: none;
+  border-radius: 10px;
+
+  transition: all 0.5s;
+
+  &:hover {
+    cursor: pointer;
+    width: 20%;
+    height: 31px;
+  }
+`;
+
+const Bnaaer = styled.div`
+  width: 19.8%;
+  margin-top: 1px;
+  border-radius: 8px;
+  height: 40px;
+  position: absolute;
+  color: white;
+  background-color: #3CA49E;
+
+  h2 {
+    color: white;
+    text-align: center;
+  }
+`;
 
 const GridContainer = styled.div` 
   /* margin-left: 20%; */
@@ -188,26 +231,15 @@ const GridContainer = styled.div`
   gap: 10px;
   background-color: white;
   padding: 10px;
-
-  .buttonstyle {
-    margin-top: 25%;
-    margin-left: 5.7%;
-    position: absolute;
-    padding: 20px 10px;
-    width: 10%;
-    text-align: center;
-    padding-top: 20px;
-    border-radius: 10px;
-  }
 `;
 
 const StyledCardPlan = styled.div`  
-  display: flex;
+  display: flex !important;
   width: 280px;
   height: 385px;
   background-color: #36bdc1;
   //box-shadow: 0 0px 7px rgba(53, 58, 65, 0.2);
-  border-radius: 20px;
+  border-radius: 10px;
   justify-content: space-between;
   transition: box-shadow .3s;
   margin-bottom: 10%;
