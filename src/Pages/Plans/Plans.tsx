@@ -66,7 +66,7 @@ const Plans: React.FC = () => {
         message.error(data.message)
         return
       }
-
+      console.log(data);
       setPlans(data.plans)
     } catch (e) {
       messageError('2011051928')
@@ -81,10 +81,6 @@ const Plans: React.FC = () => {
   const data = buildData({ prices: internal_yearly ? YEARLY_PRICE : MONTHLY_PRICE })
   const columns = useColumns({ yearly: internal_yearly, handleClickPlan })
 
-  // const dataplan = [
-  //   users: '1 Usuário',
-  // ]
-
   return (
     <>
       <Spin spinning={loading || saving}>
@@ -97,19 +93,20 @@ const Plans: React.FC = () => {
           <GridContainer>
 
             {/* <StyledTable
-            dataSource={data}
-            columns={columns}
-            pagination={{
-              pageSize: 20,
-              hideOnSinglePage: true,
-            }}
-          />  */}
+              dataSource={data}
+              columns={columns}
+              pagination={{
+                pageSize: 20,
+                hideOnSinglePage: true,
+              }}
+            /> */}
 
             <StyledCardPlan>
               <Bnaaer>
                 <h2>START</h2>
               </Bnaaer>
               <p style={{ textAlign: 'left', marginTop: '50px', fontSize: '15px', marginLeft: '10%', color: 'white' }}>
+                <p style={{ textAlign: 'center', fontSize: '25px' }}>R$ 89,90</p>
                 1 Usuário <br />
                 10 Push Free <br />
                 Dashboard <br />
@@ -118,7 +115,7 @@ const Plans: React.FC = () => {
                 Cadastros <br />
                 Relatórios <br />
               </p>
-              <ButtonStyle type="submit">
+              <ButtonStyle onClick={() => handleClickPlan('BASIC')}>
                 Contratar
               </ButtonStyle>
             </StyledCardPlan>
@@ -128,6 +125,7 @@ const Plans: React.FC = () => {
                 <h2>BASIC</h2>
               </Bnaaer>
               <p style={{ textAlign: 'left', marginTop: '50px', fontSize: '15px', marginLeft: '10%', color: 'white' }}>
+                <p style={{ textAlign: 'center', fontSize: '25px' }}>R$ 179,90</p>
                 2 Usuários <br />
                 20 Push Free <br />
                 Dashboard <br />
@@ -138,7 +136,7 @@ const Plans: React.FC = () => {
                 Gestão de Tarefas <br />
                 Anexo de Arquivos <br />
               </p>
-              <ButtonStyle type="submit">
+              <ButtonStyle onClick={() => handleClickPlan('START')}>
                 Contratar
               </ButtonStyle>
 
@@ -148,6 +146,7 @@ const Plans: React.FC = () => {
                 <h2>PRO</h2>
               </Bnaaer>
               <p style={{ textAlign: 'left', marginTop: '50px', fontSize: '15px', marginLeft: '10%', color: 'white' }}>
+                <p style={{ textAlign: 'center', fontSize: '25px' }}>R$ 269,90</p>
                 4 Usuários <br />
                 40 Push Free <br />
                 Dashboard <br />
@@ -159,9 +158,9 @@ const Plans: React.FC = () => {
                 Anexo de Arquivos <br />
                 Gestão Financeira <br />
                 Gestão de Prazos <br />
-                Criação de Documentos "EM BREVE" <br />
+                {/* Criação de Documentos "EM BREVE" <br /> */}
               </p>
-              <ButtonStyle type="submit">
+              <ButtonStyle onClick={() => handleClickPlan('PRO')}>
                 Contratar
               </ButtonStyle>
             </StyledCardPlan>
@@ -185,9 +184,10 @@ const Container = styled.div`
 const ButtonStyle = styled.button`
   display: inline;
   position: absolute;
-  margin-top: 28%;
+  margin-top: 32%;
+  margin-left: 1%;
   width: 20%;
-  height: 30px; 
+  height: 34px; 
   color: white;
 
   background-color: #3CA49E;
@@ -207,7 +207,7 @@ const ButtonStyle = styled.button`
 `;
 
 const Bnaaer = styled.div`
-  width: 19.8%;
+  width: 21.8%;
   margin-top: 1px;
   border-radius: 8px;
   height: 40px;
@@ -236,7 +236,7 @@ const GridContainer = styled.div`
 const StyledCardPlan = styled.div`  
   display: flex !important;
   width: 280px;
-  height: 385px;
+  height: 395px;
   background-color: #36bdc1;
   //box-shadow: 0 0px 7px rgba(53, 58, 65, 0.2);
   border-radius: 10px;
