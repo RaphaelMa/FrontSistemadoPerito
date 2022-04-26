@@ -9,10 +9,19 @@ import messageError from 'Utils/messageError'
 import successModal from 'Utils/successModal'
 import useSaveCompany from './useSaveCompany'
 import PlanInformation from './PlanInformation'
+import { Collapse } from 'antd';
+
 
 const Company: React.FC = () => {
   const company = useUserSelector(state => state.company)
   const permissions = useUserSelector(state => state.permissions)
+
+  const { Panel } = Collapse;
+
+  function callback(key: any){
+    console.log(key);
+  }
+
 
   const [form] = Form.useForm()
   const { setFieldsValue } = form
@@ -85,10 +94,17 @@ const Company: React.FC = () => {
   return (
     <Container>
       <Form form={form} layout="vertical" onFinish={handleFormFinish}>
-        <FormContainer>
-          <CompanyForm width={40} setFieldsValue={setFieldsValue}/>
-          <PlanInformation/>
-        </FormContainer>
+          <Collapse style={{ backgroundColor: '#05323d'}} defaultActiveKey={['1']} onChange={callback}>
+            <Panel className='panelDiv' header="Empresa" key="1">
+              <CompanyForm width={40} setFieldsValue={setFieldsValue}/>
+            </Panel>
+          </Collapse>
+          <br />
+          <Collapse style={{ backgroundColor: '#05323d'}} defaultActiveKey={['2']} onChange={callback}>
+            <Panel className='panelDiv' header="Plano e Adicionais" key="2">
+              <PlanInformation/>
+            </Panel>
+          </Collapse>
         {permissions?.company.update && (
           <Footer justify="end">
             <Space>
@@ -132,6 +148,10 @@ const Container = styled.div`
   overflow-x: hidden;
   padding: 20px 40px;
   height: calc(100% - 5rem);
+
+  .panelDiv .ant-collapse-header {
+    color: #fff;
+  }
 `
 
 const FormContainer = styled.div`

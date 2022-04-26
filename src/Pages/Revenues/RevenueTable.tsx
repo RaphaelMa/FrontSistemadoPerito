@@ -62,6 +62,8 @@ const Container = styled.div`
 const StyledTable = styled(Table)`
   .ant-table-container, .ant-table, .ant-spin-nested-loading, .ant-spin-container {
     height: calc(100% - 26px);
+    margin-left: -5%;
+    margin-right: 2%;
   }
 
   .ant-table-pagination.ant-pagination {
