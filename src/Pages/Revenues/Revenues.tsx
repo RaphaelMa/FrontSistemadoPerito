@@ -37,7 +37,7 @@ const Revenues: React.FC = () => {
     <Spin spinning={loading}>
       <Container>
         <InformationContainer>
-          <InformationCard>
+          {/* <InformationCard>
             <Title>Valor parcial da mensalidade</Title>
             <Period>{partial_monthly?.period}</Period>
 
@@ -48,15 +48,15 @@ const Revenues: React.FC = () => {
                 <Description key={description}>{description}</Description>
               ))}
             </DescriptionContainer>
-          </InformationCard>
+          </InformationCard> */}
 
-          <PaymentCard>
-            <Image src={Boleto}/>
+          {/* <PaymentCard>
+            <Image src={Boleto} />
 
             <Tooltip title="Em breve no sistema">
               <PaymentButton disabled type="primary">Alterar Forma de Pagamento</PaymentButton>
             </Tooltip>
-          </PaymentCard>
+          </PaymentCard> */}
         </InformationContainer>
 
         <RevenueTable

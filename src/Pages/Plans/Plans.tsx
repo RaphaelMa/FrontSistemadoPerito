@@ -188,6 +188,7 @@ const ButtonStyle = styled.button`
   margin-left: 1%;
   width: 20%;
   height: 34px; 
+  padding-bottom: 23px;
   color: white;
 
   background-color: #3CA49E;

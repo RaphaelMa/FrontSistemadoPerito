@@ -24,12 +24,12 @@ const Company: React.FC = () => {
     // Faz o refetch dos dados quando entra, só para manter os dados sempre atualizados
     // TODO: Buscar somente os dados da empresa
     updateCompanyData()
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   useEffect(() => {
     form.setFieldsValue({ ...company, plan_id: company?.plan.plan_id })
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [company])
 
 
@@ -54,7 +54,7 @@ const Company: React.FC = () => {
     Modal.confirm({
       title: (
         <span>
-          A conta será {active_company ? 'ativada' : 'desativada'}!<br/>
+          A conta será {active_company ? 'ativada' : 'desativada'}!<br />
           Deseja continuar?
         </span>
       ),
@@ -86,8 +86,8 @@ const Company: React.FC = () => {
     <Container>
       <Form form={form} layout="vertical" onFinish={handleFormFinish}>
         <FormContainer>
-          <CompanyForm width={40} setFieldsValue={setFieldsValue}/>
-          <PlanInformation/>
+          <CompanyForm width={40} setFieldsValue={setFieldsValue} />
+          <PlanInformation />
         </FormContainer>
         {permissions?.company.update && (
           <Footer justify="end">
@@ -144,4 +144,5 @@ const Footer = styled(Row)`
   bottom: 0;
   background: white;
   padding: 8px 0;
+  padding-bottom: 24px;
 `
