@@ -58,7 +58,8 @@ const userReducer = (state = INITIAL_STATE, action: UserActionType) => {
         loading: false,
         birthday,
         permissions,
-        kindUser
+        kindUser,
+        userName
       }
     case 'SET_ACTIVE_ACCOUNT':
       return { ...state, account_verified: action.payload }
