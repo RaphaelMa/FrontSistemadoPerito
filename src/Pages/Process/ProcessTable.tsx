@@ -83,7 +83,8 @@ const StyledTable = styled(Table)`
   }
 
   .ant-table-body {
-    height: 100%;
+    height: 95%;
+    max-height: 95% !important
   }
 
 ` as typeof Table

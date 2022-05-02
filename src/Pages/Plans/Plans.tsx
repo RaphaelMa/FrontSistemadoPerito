@@ -66,7 +66,7 @@ const Plans: React.FC = () => {
         message.error(data.message)
         return
       }
-
+      console.log(data);
       setPlans(data.plans)
     } catch (e) {
       messageError('2011051928')
@@ -80,16 +80,7 @@ const Plans: React.FC = () => {
 
   const data = buildData({ prices: internal_yearly ? YEARLY_PRICE : MONTHLY_PRICE })
   const columns = useColumns({ yearly: internal_yearly, handleClickPlan })
-
-<<<<<<< HEAD
-  console.log('data', data);
-  console.log('columns', columns);
-=======
-  // const dataplan = [
-  //   users: '1 Usuário',
-  // ]
->>>>>>> 3e7736e36f0dc56accaf54e2775eed971f199ca9
-
+  
   return (
     <Content>
       <Spin spinning={loading || saving}>
@@ -99,16 +90,8 @@ const Plans: React.FC = () => {
             <SwitchStyled onChange={(value) => setInternalYearly(value)} checked={internal_yearly} />
             <Text>Anual</Text>
           </Header>
+          <GridContainer>
 
-          {/* <StyledCardPlan>
-            <p style={{ textAlign: 'center', marginLeft: '30px', marginTop: '20px' }}>
-              10 Push Free <br />
-              Dashboard <br />
-              Gestão de Perícias e Assistências <br />
-              Gestão da Agenda <br />
-              Cadastros <br />
-              Relatórios <br />
-            </p>
             {/* <StyledTable
               dataSource={data}
               columns={columns}
@@ -116,12 +99,9 @@ const Plans: React.FC = () => {
                 pageSize: 20,
                 hideOnSinglePage: true,
               }}
-            /> 
-          </StyledCardPlan> */}
+            /> */}
 
-          <GridContainer>
             <StyledCardPlan>
-<<<<<<< HEAD
               <Bnaaer>
                 <h2>START</h2>
               </Bnaaer>
@@ -142,23 +122,9 @@ const Plans: React.FC = () => {
               <ButtonStyle onClick={() => handleClickPlan('BASIC')}>
                 Contratar
               </ButtonStyle>
-=======
-              <p style={{ textAlign: 'left', marginTop: '20px', fontSize: '20px', marginLeft: '10%', color: 'white' }}>
-                1 Usuário <br />
-                10 Push Free <br />
-                Dashboard <br />
-                Gestão de Perícias e Assistências <br />
-                Gestão da Agenda <br />
-                Cadastros <br />
-                Relatórios <br />
-              </p>
-              <Button className="buttonstyle">
-                Salvar
-              </Button>
->>>>>>> 3e7736e36f0dc56accaf54e2775eed971f199ca9
             </StyledCardPlan>
+
             <StyledCardPlan>
-<<<<<<< HEAD
               <Bnaaer>
                 <h2>BASIC</h2>
               </Bnaaer>
@@ -205,34 +171,6 @@ const Plans: React.FC = () => {
               <ButtonStyle onClick={() => handleClickPlan('PRO')}>
                 Contratar
               </ButtonStyle>
-=======
-              <p style={{ textAlign: 'left', marginTop: '20px', fontSize: '20px', marginLeft: '10%', color: 'white' }}>
-                1 Usuário <br />
-                10 Push Free <br />
-                Dashboard <br />
-                Gestão de Perícias e Assistências <br />
-                Gestão da Agenda <br />
-                Cadastros <br />
-                Relatórios <br />
-              </p>
-              <Button className="buttonstyle">
-                Salvar
-              </Button>
-            </StyledCardPlan>
-            <StyledCardPlan>
-              <p style={{ textAlign: 'left', marginTop: '20px', fontSize: '20px', marginLeft: '10%', color: 'white' }}>
-                1 Usuário <br />
-                10 Push Free <br />
-                Dashboard <br />
-                Gestão de Perícias e Assistências <br />
-                Gestão da Agenda <br />
-                Cadastros <br />
-                Relatórios <br />
-              </p>
-              <Button className="buttonstyle">
-                Salvar
-              </Button>
->>>>>>> 3e7736e36f0dc56accaf54e2775eed971f199ca9
             </StyledCardPlan>
           </GridContainer>
         </Container>
@@ -274,7 +212,6 @@ const ContainerPriceCard = styled.div`
   }
 `;
 
-<<<<<<< HEAD
 const ButtonStyle = styled.button`
   color: #FFFFFF;
     font-size: 14px;
@@ -308,11 +245,6 @@ const Bnaaer = styled.div`
     text-align: center;
   }
 `;
-=======
-// const ButtonStyle = styled.button`
-
-// `;
->>>>>>> 3e7736e36f0dc56accaf54e2775eed971f199ca9
 
 const GridContainer = styled.div` 
   /* margin-left: 20%; */
@@ -324,36 +256,17 @@ const GridContainer = styled.div`
   gap: 10px;
   background-color: white;
   padding: 10px;
-<<<<<<< HEAD
   justify-content: center;
   align-items: flex-start;
-=======
-
-  .buttonstyle {
-    margin-top: 25%;
-    margin-left: 5.7%;
-    position: absolute;
-    padding: 20px 10px;
-    width: 10%;
-    text-align: center;
-    padding-top: 20px;
-    border-radius: 10px;
-  }
->>>>>>> 3e7736e36f0dc56accaf54e2775eed971f199ca9
 `;
 
 const StyledCardPlan = styled.div`  
-  display: flex;
+  display: flex !important;
   width: 280px;
-<<<<<<< HEAD
   background-color: transparent;
   background-image: linear-gradient(180deg, #14DDCA 0%, #00ADB9 100%);
-=======
-  height: 385px;
-  background-color: #36bdc1;
->>>>>>> 3e7736e36f0dc56accaf54e2775eed971f199ca9
   //box-shadow: 0 0px 7px rgba(53, 58, 65, 0.2);
-  border-radius: 20px;
+  border-radius: 10px;
   justify-content: space-between;
   transition: box-shadow .3s;
   margin-bottom: 10%;
