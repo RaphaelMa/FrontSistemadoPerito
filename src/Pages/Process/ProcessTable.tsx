@@ -69,10 +69,11 @@ export default memo(ProcessTable)
 
 const StyledTable = styled(Table)`
   .ant-table-container, .ant-spin-nested-loading, .ant-table, .ant-spin-container {
-    height: calc(100% - 65px);
+    height: calc(100% - 80px);
 
     .ant-pagination {
       margin: 0 0 10px 0;
+      margin-top: 0;
     }
   }
 
@@ -83,8 +84,7 @@ const StyledTable = styled(Table)`
   }
 
   .ant-table-body {
-    height: 95%;
-    max-height: 95% !important
+    height: 100%;
   }
 
 ` as typeof Table
