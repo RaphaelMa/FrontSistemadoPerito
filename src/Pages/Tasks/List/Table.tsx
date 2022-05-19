@@ -96,7 +96,7 @@ const StyledTable = styled(Table)`
   }
 
   .ant-table-body {
-    height: calc(100% - 40px);
+    height: 100%;
   }
 ` as typeof Table
 

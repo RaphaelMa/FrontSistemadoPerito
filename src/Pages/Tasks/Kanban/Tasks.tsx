@@ -229,7 +229,7 @@ const BoardContainer = styled.div`
   display: flex;
   flex-flow: row nowrap;
   /* 50px do header, 42px do header do board, */
-  height: calc(100vh - 50px - 42px);
+  height: calc(100vh - 100px - 42px);
   width: 100%;
   overflow-x: scroll;
   overflow-y: hidden;

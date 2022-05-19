@@ -18,7 +18,7 @@ type Props = {
   handleOpenDrawer: FinancialDrawerType['open'],
   afterSave: (data: QueryPayload) => void,
   header_height: number,
- }
+}
 
 const FinancialTable: React.FC<Props> = (props) => {
   const { loading, financials, header_height, setFinancials, setGeneralFinancial, handleTableChange, handleOpenDrawer, afterSave } = props
@@ -95,14 +95,14 @@ const FinancialTable: React.FC<Props> = (props) => {
             <Details key={_id}>
               {!!people_name && (
                 <Detail>
-                  <Dot/>
+                  <Dot />
                   <div>{people_name}</div>
                 </Detail>
               )}
 
               {!!observation && (
                 <Detail>
-                  <Dot/>
+                  <Dot />
                   <div>{observation}</div>
                 </Detail>
               )}
@@ -117,7 +117,30 @@ const FinancialTable: React.FC<Props> = (props) => {
 export default FinancialTable
 
 const StyledTable = styled(Table)`
-  height: calc(100% - 40px);
+
+.ant-table-container, .ant-spin-nested-loading, .ant-table, .ant-spin-container {
+  height: calc(100% - 34px);
+
+    .ant-pagination {
+      margin: 0 0 10px 0;
+      margin-top: 40px;
+    }
+  }
+
+  .ant-table-thead {
+    th {
+      text-align: center;
+    } 
+  }
+
+  .ant-table-body {
+    height: 100%;
+  }
+
+  .ant-pagination > li {
+    z-index: 100;
+  } 
+  /* height: calc(100% - 80px);
 
   .ant-table-container, .ant-spin-nested-loading, .ant-table, .ant-spin-container {
     height: 100%;
@@ -130,16 +153,22 @@ const StyledTable = styled(Table)`
   }
 
   .ant-table-body {
-    height: calc(100% - 40px);
+    height: 100%;
+    padding-bottom: 3%;
   }
 
   .ant-pagination {
+    margin: 10px 10px 10px 20px;
+    margin-top: 30px;
+    margin-bottom: 30%;
+
     background-color: white;
   }
 
   .ant-pagination > li {
     z-index: 100;
-  }
+    padding-bottom: 10%;
+  } */
 ` as typeof Table
 
 const TableContainer = styled.div<{ $header_height: number }>`

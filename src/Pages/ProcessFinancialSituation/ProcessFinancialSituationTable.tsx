@@ -57,10 +57,34 @@ export default memo(ProcessFinancialSituationTable)
 
 const StyledTable = styled(Table)`
   .ant-table-container, .ant-spin-nested-loading, .ant-table, .ant-spin-container {
-    height: calc(100% - 48px);
+  height: calc(100% - 34px);
+
+    .ant-pagination {
+      margin: 0 0 10px 0;
+      margin-top: 40px;
+    }
+  }
+
+  .ant-table-thead {
+    th {
+      text-align: center;
+    } 
   }
 
   .ant-table-body {
     height: 100%;
   }
-` as typeof Table
+
+  .ant-pagination > li {
+    z-index: 100;
+  } 
+
+
+  /* .ant-table-container, .ant-spin-nested-loading, .ant-table, .ant-spin-container {
+    height: calc(100% - 48px);
+  }
+
+  .ant-table-body {
+    height: 100%;
+  } */
+` as typeof Table 

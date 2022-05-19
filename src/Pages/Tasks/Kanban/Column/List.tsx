@@ -81,7 +81,7 @@ const InnerList: React.FC<InnerListProps> = memo((props: InnerListProps) => {
 // o item da lista
 export default memo(List)
 
-const Container = styled.div``
+const Container = styled.div``;
 
 const DropZone = styled.div`
   min-height: ${CONTAINER_MIN_HEIGHT}px;
@@ -90,7 +90,7 @@ const DropZone = styled.div`
 
 const ScrollContainer = styled.div`
   overflow-x: hidden;
-  overflow-y: scroll;
+  overflow-y: scroll; 
   /* 50px do header, 42px do header do board, 10 da margin das colunas, 50.5 do header da coluna, 12 da margin embaixo */
   max-height: calc(100vh - 50px - 42px - 10px - 50.5px - 12px);
 
