@@ -4,6 +4,7 @@ import styled from 'styled-components'
 
 import image_background from 'Assets/login_background.png'
 import logo from 'Assets/LogoV2.png'
+import SuporteIcon from './Components/SuporteIcon'
 
 const Login: React.FC = () => {
   return (
@@ -20,6 +21,7 @@ const Login: React.FC = () => {
       </LeftContainer>
 
       <RightContainer style={{ backgroundImage: `url(${image_background})` }}/>
+      <SuporteIcon />
     </Container>
   )
 }
