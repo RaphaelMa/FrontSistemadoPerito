@@ -5,7 +5,7 @@ const SuporteIcon: React.FC = () => {
   return (
    <Container>
         <a href="https://front-suporte-perito.herokuapp.com/" target='blank'>
-            <h4 style={{ color: '#000', marginTop: '26px', marginLeft: '8px'}}>Suporte</h4>
+            <Title style={{ color: '#FFF', marginTop: '26px', marginLeft: '8px'}}>SUPORTE</Title>
         </a>
    </Container>
   )
@@ -22,15 +22,22 @@ const Container = styled.div`
 
     height: 80px;
     border-radius: 50%;
-    background-color: rgb(0, 254, 205);;
+    background-color: #01383d;
     color: #000;
 
     margin-top: 42%;
     margin-left: 2%;
 
-    border: 2px solid #FFF;
+    border: 2px solid #00fecd;
 
     cursor: pointer;
 
     box-shadow: 12px 14px 34px -2px #000000;
+`;
+
+const Title = styled.h4`
+  color: #fff;
+  margin-top: 28px;
+  margin-left: 7px;
+  font-size: 13px;
 `;

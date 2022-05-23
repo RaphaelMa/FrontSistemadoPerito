@@ -52,7 +52,6 @@ const Column: React.FC<Props> = (props) => {
 }
 
 export default memo(Column, isEqual)
-
 const Container = styled.div`
   margin: 10px 0 0 10px;
   display: flex;
