@@ -24,4 +24,8 @@ export type FinancialType = {
   category_id?: string,
   category_description?: string,
   value: number,
+  partialReceipt: number,
+  porcentReceptiValue: number,
+  recepetPartial: number,
+  totalRecepetValue?: number
 }

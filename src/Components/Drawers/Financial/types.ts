@@ -11,6 +11,9 @@ export type FinancialType = {
   process_id: string,
   people_id: string,
   observation: string,
+  partialReceipt: number,
+  porcentReceptiValue: number,
+  recepetPartial: number,
   financialAccount_id?: string,
   financialAccount_description?: string
 }
@@ -24,4 +27,5 @@ export type GeneralFinancial = {
   pay: number,
   receive: number,
   total: number,
+  totalRecepetValue: number
 }

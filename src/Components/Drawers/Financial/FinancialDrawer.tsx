@@ -43,6 +43,9 @@ const FinancialDrawer: React.ForwardRefRenderFunction<FinancialDrawerType, Finan
         people_id: financial.people_id,
         value: financial.value,
         discount: financial.discount,
+        partialReceipt: financial.value,
+        porcentReceptiValue: financial.value,
+        recepetPartial: financial.value,
         financialAccount_id: financial.financialAccount_id,
         observation: financial.observation,
       }
@@ -67,6 +70,9 @@ const FinancialDrawer: React.ForwardRefRenderFunction<FinancialDrawerType, Finan
       people_id: financial.people_id,
       value: financial.value,
       discount: financial.discount,
+      partialReceipt: financial.value,
+      porcentReceptiValue: financial.value,
+      recepetPartial: financial.value,
       financialAccount_id: financial.financialAccount_id,
       observation: financial.observation,
     }

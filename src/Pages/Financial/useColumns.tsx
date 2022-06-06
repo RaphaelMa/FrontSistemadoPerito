@@ -82,6 +82,27 @@ const useColumns = ({ handleMovementPress }: Props): ColumnsType<FinancialType> 
       render: (value: string) => currencyFormatter(value, { cents: true })
     },
     {
+      title: 'Qtd. Parcelas',
+      dataIndex: 'porcentReceptiValue',
+      align: 'center',
+      width: 120,
+      // render: (value: number) => (value, { cents: true })
+    },
+    {
+      title: 'A Receber Parcelado',
+      dataIndex: 'recepetPartial',
+      align: 'center',
+      width: 120,
+      render: (value: string) => currencyFormatter(value, { cents: true })
+    },
+    // {
+    //   title: 'Valores por Parcelas',
+    //   dataIndex: 'totalRecepetValue',
+    //   align: 'center',
+    //   width: 120,
+    //   render: (value: string) => currencyFormatter(value, { cents: true })
+    // },
+    {
       title: 'Ações',
       align: 'center',
       width: 140,

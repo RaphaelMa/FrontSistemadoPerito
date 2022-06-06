@@ -7,7 +7,11 @@ import ProcessInput from 'Components/Inputs/ProcessInput/ProcessInput'
 import PersonInput from 'Components/Inputs/PersonInput/PersonInput'
 import MovementInput from 'Components/Inputs/Movements/Movements'
 import CurrencyInput from 'Components/Inputs/CurrencyInput'
+import CurrencyInputNewFinance from 'Components/Inputs/CurrencyInputNewFinance';
 import moment from 'moment'
+import { Collapse } from 'antd';
+import styled from 'styled-components'
+
 
 type Props = {
   form: FormInstance,
@@ -25,10 +29,20 @@ const initial_values = {
   financialAccount_id: null,
   value: 0,
   discount: 0,
+  partialReceipt: 0,
+  porcentReceptiValue: 0,
+  recepetPartial: 0,
   observation: ''
 }
 
 const FinancialForm: React.FC<Props> = ({ form, is_paid, afterSave, handleChangeReverse }) => {
+
+  const { Panel } = Collapse;
+  
+  function callback(key: any){
+    console.log(key);
+  }
+
   const handleChangeIsPaid = (value: boolean) => {
     if (is_paid && !value) handleChangeReverse()
   }
@@ -159,6 +173,53 @@ const FinancialForm: React.FC<Props> = ({ form, is_paid, afterSave, handleChange
           </Form.Item>
         </Col>
       </Row>
+
+      {/* Novos campos para o financeiro*/}
+      <Row gutter={8}>
+        <Col span={6}>
+          <Form.Item
+            label="Recebimento Parcial"
+            name="recepetPartial"
+          >
+            <CurrencyInput disabled={is_paid}/>
+          </Form.Item>
+        </Col>
+      </Row> 
+
+      <Row gutter={8}>
+        <Col span={6}>
+          <Form.Item
+            label="Recebimento Parcelado"
+            name="partialReceipt"
+          >
+            <CurrencyInput disabled={is_paid}/>
+          </Form.Item>
+        </Col>
+
+        <Col span={6}>
+          <Form.Item
+            label="Qtd Parcelas"
+            name="porcentReceptiValue"
+          >
+            <Input type="number" value="0" />
+          </Form.Item>
+        </Col>
+        
+          <Collapse style={{ backgroundColor: '#3ca49e', width: '100%'}} defaultActiveKey={['2']} onChange={callback}>
+            <Panel className='panelDiv' header="Parcelas" key="1">
+                1 - Parcela R$200,00 <br />
+                2 - Parcela R$200,00 <br />
+                3 - Parcela R$200,00 <br />
+                4 - Parcela R$200,00 <br />
+                5 - Parcela R$200,00 <br />
+                6 - Parcela R$200,00 <br />
+                7 - Parcela R$200,00 <br />
+                8 - Parcela R$200,00 <br />
+                9 - Parcela R$200,00 <br />
+                10 - Parcela R$200,00 <br />
+            </Panel>
+          </Collapse>
+      </Row> 
 
       <Row gutter={8}>
         <Col span={24}>
