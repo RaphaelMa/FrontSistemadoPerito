@@ -1,11 +1,11 @@
-import React, { useMemo } from 'react'
+import React, { useMemo, useState } from 'react'
 import { ColumnsType } from 'antd/es/table'
-import { Button, Popconfirm, Switch, Tag } from 'antd'
+import { Button, Popconfirm, Switch, Tag, Modal } from 'antd'
 import { FinancialType } from './types'
 import moment, { defaultFormat } from 'moment'
 import { currencyFormatter } from 'Utils/formatters'
 import styled from 'styled-components'
-import { DeleteOutlined, EditOutlined } from '@ant-design/icons'
+import { DeleteOutlined, EditOutlined, WalletOutlined } from '@ant-design/icons'
 import { theme } from 'Styles/theme'
 
 type Props = {
@@ -13,6 +13,25 @@ type Props = {
 }
 
 const useColumns = ({ handleMovementPress }: Props): ColumnsType<FinancialType> => {
+  const [isModalVisible, setIsModalVisible] = useState(false);
+
+  // Setando dados do modal para parcelas
+  const showModal = () => {
+    setIsModalVisible(true);
+  };
+
+  const handleOk = () => {
+    setIsModalVisible(false);
+  };
+
+  const handleCancel = () => {
+    setIsModalVisible(false);
+  }; 
+
+  const onChange = (checked: any) => {
+    console.log(`switch to ${checked}`);
+  };
+    
   return useMemo(() => ([
     {
       title: 'Vencimento',
@@ -95,19 +114,111 @@ const useColumns = ({ handleMovementPress }: Props): ColumnsType<FinancialType> 
       width: 120,
       render: (value: string) => currencyFormatter(value, { cents: true })
     },
-    // {
-    //   title: 'Valores por Parcelas',
-    //   dataIndex: 'totalRecepetValue',
-    //   align: 'center',
-    //   width: 120,
-    //   render: (value: string) => currencyFormatter(value, { cents: true })
-    // },
+    {
+      title: 'Valores por Parcelas',
+      dataIndex: 'totalRecepetValue',
+      align: 'center',
+      width: 120,
+      render: (value: string) => currencyFormatter(value, { cents: true })
+    },
     {
       title: 'Ações',
       align: 'center',
       width: 140,
       render: (_, financial: FinancialType) => (
         <ActionsContainer>
+          <Modal
+            title="Detalhamento de Valores das Parcelas"
+            visible={isModalVisible}
+            onOk={handleOk}
+            onCancel={handleCancel}>
+              <GridContainer>
+                <Installments>
+                  <h2>1</h2>
+                </Installments>
+                <Installments style={{ marginLeft: '-6rem'}}>
+                  <h2>08/06/2022</h2>
+                </Installments>
+                <Installments>
+                  <h2>R$ 200,00</h2>
+                </Installments>
+                <Installments>
+                  <Switch
+                    defaultChecked
+                    onChange={onChange}
+                    style={{ marginLeft: '10rem'}}
+                  />
+                </Installments>
+              
+                <Installments>
+                  <h2>2</h2>
+                </Installments>
+                <Installments style={{ marginLeft: '-6rem'}}>
+                  <h2>08/06/2022</h2>
+                </Installments>
+                <Installments>
+                  <h2>R$ 200,00</h2>
+                </Installments>
+                <Installments>
+                  <Switch
+                    defaultChecked
+                    onChange={onChange}
+                    style={{ marginLeft: '10rem'}}
+                  />
+                </Installments>
+              
+                <Installments>
+                  <h2>3</h2>
+                </Installments>
+                <Installments style={{ marginLeft: '-6rem'}}>
+                  <h2>08/06/2022</h2>
+                </Installments>
+                <Installments>
+                  <h2>R$ 200,00</h2>
+                </Installments>
+                <Installments>
+                  <Switch
+                    defaultChecked
+                    onChange={onChange}
+                    style={{ marginLeft: '10rem'}}
+                  />
+                </Installments>
+
+                <Installments>
+                  <h2>4</h2>
+                </Installments>
+                <Installments style={{ marginLeft: '-6rem'}}>
+                  <h2>08/06/2022</h2>
+                </Installments>
+                <Installments>
+                  <h2>R$ 200,00</h2>
+                </Installments>
+                <Installments>
+                  <Switch
+                    defaultChecked
+                    onChange={onChange}
+                    style={{ marginLeft: '10rem'}}
+                  />
+              </Installments>
+              
+                <Installments>
+                  <h2>5</h2>
+                </Installments>
+                <Installments style={{ marginLeft: '-6rem'}}>
+                  <h2>08/06/2022</h2>
+                </Installments>
+                <Installments>
+                  <h2>R$ 200,00</h2>
+                </Installments>
+                <Installments>
+                  <Switch
+                    
+                    onChange={onChange}
+                    style={{ marginLeft: '10rem'}}
+                  />
+                </Installments>
+              </GridContainer>
+          </Modal>
           <Popconfirm
             title={
               <>
@@ -133,9 +244,15 @@ const useColumns = ({ handleMovementPress }: Props): ColumnsType<FinancialType> 
             onClick={() => handleMovementPress(financial, 'edit')}
           />
 
+          <Button
+            type="text"
+            icon={<WalletOutlined style={{ color: theme.colors.primary }}/>}
+            onClick={showModal}
+          />
+          
           <Switch
             onChange={() => handleMovementPress(financial, 'action')}
-            style={{ marginLeft: 5 }}
+            style={{ marginLeft: 5, marginTop: 6 }}
             size="small"
             checked={financial.isPaid}
           />
@@ -148,6 +265,16 @@ const useColumns = ({ handleMovementPress }: Props): ColumnsType<FinancialType> 
 export default useColumns
 
 const ActionsContainer = styled.div`
-  display: block;
+  display: flex;
   justify-content: space-between;
 `
+
+const GridContainer = styled.div`
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(12, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+`
+
+const Installments = styled.div``

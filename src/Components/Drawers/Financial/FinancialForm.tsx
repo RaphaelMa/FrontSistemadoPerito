@@ -204,21 +204,6 @@ const FinancialForm: React.FC<Props> = ({ form, is_paid, afterSave, handleChange
             <Input type="number" value="0" />
           </Form.Item>
         </Col>
-        
-          <Collapse style={{ backgroundColor: '#3ca49e', width: '100%'}} defaultActiveKey={['2']} onChange={callback}>
-            <Panel className='panelDiv' header="Parcelas" key="1">
-                1 - Parcela R$200,00 <br />
-                2 - Parcela R$200,00 <br />
-                3 - Parcela R$200,00 <br />
-                4 - Parcela R$200,00 <br />
-                5 - Parcela R$200,00 <br />
-                6 - Parcela R$200,00 <br />
-                7 - Parcela R$200,00 <br />
-                8 - Parcela R$200,00 <br />
-                9 - Parcela R$200,00 <br />
-                10 - Parcela R$200,00 <br />
-            </Panel>
-          </Collapse>
       </Row> 
 
       <Row gutter={8}>
