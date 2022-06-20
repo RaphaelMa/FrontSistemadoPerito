@@ -8,6 +8,7 @@ import { FinancialType, GeneralFinancial } from './types'
 import moment from 'moment'
 import { TablePaginationConfig } from 'antd/lib/table'
 import { FinancialDrawerType } from 'Components/Drawers/Financial/FinancialDrawer'
+import { currencyFormatter } from 'Utils/formatters'
 
 type Props = {
   loading: boolean,
@@ -69,6 +70,20 @@ const FinancialTable: React.FC<Props> = (props) => {
 
   const columns = useColumns({ handleMovementPress })
 
+  function loopPartials(porcentReceptiValue: number, totalRecepetValue: any): any{
+    const valueParcelas = currencyFormatter(totalRecepetValue, { cents: true });
+    let parcelas = [];
+    for (var i = 1; i <= porcentReceptiValue; i++) {
+      parcelas.push(
+        <Detail key={i}>
+          <Dot />
+          <div>{i}x - {valueParcelas}</div>
+        </Detail>
+      );
+    }
+    return parcelas;
+  }
+
   return (
     <TableContainer $header_height={header_height}>
       <StyledTable
@@ -90,22 +105,11 @@ const FinancialTable: React.FC<Props> = (props) => {
         }}
         scroll={{ y: 2000 }}
         expandable={{
-          rowExpandable: ({ people_name, observation }) => (!!people_name || !!observation),
-          expandedRowRender: ({ _id, people_name, observation }) => (
+          rowExpandable: ({ porcentReceptiValue, totalRecepetValue }) => (!!porcentReceptiValue || !!totalRecepetValue),
+          expandedRowRender: ({ _id, porcentReceptiValue, totalRecepetValue }) => (
             <Details key={_id}>
-              {!!people_name && (
-                <Detail>
-                  <Dot />
-                  <div>{people_name}</div>
-                </Detail>
-              )}
-
-              {!!observation && (
-                <Detail>
-                  <Dot />
-                  <div>{observation}</div>
-                </Detail>
-              )}
+              <p><b>Parcelas:</b></p>
+              {loopPartials(porcentReceptiValue, totalRecepetValue)}
             </Details>
           )
         }}

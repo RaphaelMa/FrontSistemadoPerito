@@ -13,25 +13,25 @@ type Props = {
 }
 
 const useColumns = ({ handleMovementPress }: Props): ColumnsType<FinancialType> => {
-  const [isModalVisible, setIsModalVisible] = useState(false);
+  // const [isModalVisible, setIsModalVisible] = useState(false);
 
-  // Setando dados do modal para parcelas
-  const showModal = () => {
-    setIsModalVisible(true);
-  };
+  // // Setando dados do modal para parcelas
+  // const showModal = () => {
+  //   setIsModalVisible(true);
+  // };
 
-  const handleOk = () => {
-    setIsModalVisible(false);
-  };
+  // const handleOk = () => {
+  //   setIsModalVisible(false);
+  // };
 
-  const handleCancel = () => {
-    setIsModalVisible(false);
-  }; 
+  // const handleCancel = () => {
+  //   setIsModalVisible(false);
+  // }; 
 
-  const onChange = (checked: any) => {
-    console.log(`switch to ${checked}`);
-  };
-    
+  // const onChange = (checked: any) => {
+  //   console.log(`switch to ${checked}`);
+  // };
+
   return useMemo(() => ([
     {
       title: 'Vencimento',
@@ -127,7 +127,7 @@ const useColumns = ({ handleMovementPress }: Props): ColumnsType<FinancialType> 
       width: 140,
       render: (_, financial: FinancialType) => (
         <ActionsContainer>
-          <Modal
+          {/* <Modal
             title="Detalhamento de Valores das Parcelas"
             visible={isModalVisible}
             onOk={handleOk}
@@ -149,76 +149,8 @@ const useColumns = ({ handleMovementPress }: Props): ColumnsType<FinancialType> 
                     style={{ marginLeft: '10rem'}}
                   />
                 </Installments>
-              
-                <Installments>
-                  <h2>2</h2>
-                </Installments>
-                <Installments style={{ marginLeft: '-6rem'}}>
-                  <h2>08/06/2022</h2>
-                </Installments>
-                <Installments>
-                  <h2>R$ 200,00</h2>
-                </Installments>
-                <Installments>
-                  <Switch
-                    defaultChecked
-                    onChange={onChange}
-                    style={{ marginLeft: '10rem'}}
-                  />
-                </Installments>
-              
-                <Installments>
-                  <h2>3</h2>
-                </Installments>
-                <Installments style={{ marginLeft: '-6rem'}}>
-                  <h2>08/06/2022</h2>
-                </Installments>
-                <Installments>
-                  <h2>R$ 200,00</h2>
-                </Installments>
-                <Installments>
-                  <Switch
-                    defaultChecked
-                    onChange={onChange}
-                    style={{ marginLeft: '10rem'}}
-                  />
-                </Installments>
-
-                <Installments>
-                  <h2>4</h2>
-                </Installments>
-                <Installments style={{ marginLeft: '-6rem'}}>
-                  <h2>08/06/2022</h2>
-                </Installments>
-                <Installments>
-                  <h2>R$ 200,00</h2>
-                </Installments>
-                <Installments>
-                  <Switch
-                    defaultChecked
-                    onChange={onChange}
-                    style={{ marginLeft: '10rem'}}
-                  />
-              </Installments>
-              
-                <Installments>
-                  <h2>5</h2>
-                </Installments>
-                <Installments style={{ marginLeft: '-6rem'}}>
-                  <h2>08/06/2022</h2>
-                </Installments>
-                <Installments>
-                  <h2>R$ 200,00</h2>
-                </Installments>
-                <Installments>
-                  <Switch
-                    
-                    onChange={onChange}
-                    style={{ marginLeft: '10rem'}}
-                  />
-                </Installments>
               </GridContainer>
-          </Modal>
+          </Modal> */}
           <Popconfirm
             title={
               <>
@@ -244,11 +176,11 @@ const useColumns = ({ handleMovementPress }: Props): ColumnsType<FinancialType> 
             onClick={() => handleMovementPress(financial, 'edit')}
           />
 
-          <Button
+          {/* <Button
             type="text"
             icon={<WalletOutlined style={{ color: theme.colors.primary }}/>}
             onClick={showModal}
-          />
+          /> */}
           
           <Switch
             onChange={() => handleMovementPress(financial, 'action')}
