@@ -76,6 +76,20 @@ const useColumns = ({ handleDelete, handleEdit }: UseColumnsProps): ColumnsType<
       }
     },
     {
+      title: 'Agencia Bancaria',
+      dataIndex: 'agency',
+      align: 'center',
+      width: 100,
+      key: 'agency',
+    },
+    {
+      title: 'Conta Bancaria',
+      dataIndex: 'bankAccount',
+      align: 'center',
+      width: 100,
+      key: 'bankAccount',
+    },
+    {
       title: 'Ações',
       key: 'actions',
       align: 'center',

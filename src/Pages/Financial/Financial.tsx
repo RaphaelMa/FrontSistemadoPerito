@@ -183,7 +183,13 @@ const Financial: React.FC = () => {
   const exportToXLS = useExportData(filtered_data)
 
   return (
+    <>
+    <AlertFinancial>
+        <TextTitle>Financeiro Versão 1.0 BETA</TextTitle>
+      </AlertFinancial>
     <Container>
+      
+
       <Header
         key={header_key}
         general_financial={general_financial}
@@ -194,6 +200,7 @@ const Financial: React.FC = () => {
         handleOpenDrawer={handleOpenDrawer}
         exportToXLS={exportToXLS}
       />
+
 
       <FinancialTable
         loading={loading}
@@ -208,13 +215,31 @@ const Financial: React.FC = () => {
 
       <FinancialDrawer afterSave={afterSave} ref={financialModalRef}/>
     </Container>
+    </>
   )
 }
 
 export default Financial
 
 const Container = styled.div`
+  margin-top: 40px;
   width: 100%;
   padding: 2rem;
   height: calc(100vh - 4rem);
-`
+`;
+
+const AlertFinancial = styled.div`
+  margin-top: -4.5vh;
+
+  width: 100%;
+  height: 30px;
+  background-color: red;
+ `;
+
+const TextTitle = styled.div`
+  padding-top: 2px;
+  text-align: center;
+  color: white;
+  font-weight: 500;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+`;

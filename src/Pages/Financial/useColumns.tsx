@@ -109,7 +109,7 @@ const useColumns = ({ handleMovementPress }: Props): ColumnsType<FinancialType> 
     },
     {
       title: 'A Receber Parcelado',
-      dataIndex: 'recepetPartial',
+      dataIndex: 'partialReceipt',
       align: 'center',
       width: 120,
       render: (value: string) => currencyFormatter(value, { cents: true })

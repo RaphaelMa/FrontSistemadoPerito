@@ -8,4 +8,6 @@ export type PersonType = {
   personalContact?: number | string,
   birthday?: string,
   address?: string,
+  bankAccount?: string,
+  agency?: string,
 }

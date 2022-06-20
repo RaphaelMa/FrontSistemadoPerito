@@ -20,6 +20,8 @@ export type PersonType = {
   state?: string,
   city?: string,
   address?: string,
+  agency?: string,
+  bankAccount?: string,
   documentType?: string,
   document?: number,
 }

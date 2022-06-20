@@ -416,8 +416,10 @@ export default ProcessForm
 
 const Footer = styled(Row)`
   width: 100%;
-  position: sticky;
+  position: absolute;
   bottom: -20px;
   background: white;
   padding: 8px 0;
+  padding-right: 5%;
+  margin-bottom: 20px;
 `

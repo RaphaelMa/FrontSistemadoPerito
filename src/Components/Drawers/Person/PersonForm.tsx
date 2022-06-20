@@ -205,6 +205,24 @@ const PersonForm: React.FC<Props> = ({ form }) => {
           </Form.Item>
         </Col>
       </Row>
+      <Row gutter={8}>
+        <Col span={12}>
+          <Form.Item
+            name="agency"
+            label="Agencia"
+          >
+            <Input placeholder="000-0" autoComplete="off"/>
+          </Form.Item>
+        </Col>
+        <Col span={12}>
+          <Form.Item
+            name="bankAccount"
+            label="Conta Bancaria"
+          >
+            <Input placeholder="00000-0" autoComplete="off"/>
+          </Form.Item>
+        </Col>
+      </Row>
     </Form>
   )
 }

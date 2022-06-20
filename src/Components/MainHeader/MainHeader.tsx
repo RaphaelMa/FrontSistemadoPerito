@@ -252,6 +252,11 @@ const MainHeader: React.FC = () => {
 
             </Menu.SubMenu>
 
+            <Menu.Item key="suporte">
+              <a href="https://front-suporte-perito.herokuapp.com/"
+                target='_blank'>Suporte
+              </a>
+            </Menu.Item>
           </MenuStyled>
         }
 

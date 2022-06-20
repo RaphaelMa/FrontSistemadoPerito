@@ -15,9 +15,9 @@ type Props = {
 const ExtraCard: React.FC<Props> = ({ movements }) => {
 
   return (
-    <Card>
+    <Card style={{ marginBottom: '20px' }}>
       <Tabs defaultActiveKey="movements">
-        <TabPane forceRender tab="Movimentações" key="movements">
+        <TabPane style={{ marginBottom: '20px' }} forceRender tab="Movimentações" key="movements">
           <MovementsTab movements={movements}/>
         </TabPane>
 
