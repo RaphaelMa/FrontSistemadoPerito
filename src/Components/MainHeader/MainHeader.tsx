@@ -152,6 +152,10 @@ const MainHeader: React.FC = () => {
               </Menu.Item>
             </Menu.SubMenu>
 
+            <Menu.Item key="fees">
+              <Link to="/fees">Honorarios</Link> 
+            </Menu.Item>
+
             <Menu.Item key="history">
               <Link to="/history">Histórico</Link>
             </Menu.Item>

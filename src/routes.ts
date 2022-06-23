@@ -27,6 +27,7 @@ const MultiCompanies = withSuspense(lazy(() => import('Pages/MultiCompanies/Mult
 const KanbanTasks = withSuspense(lazy(() => import('Pages/Tasks/Kanban/Tasks')))
 const ListTasks = withSuspense(lazy(() => import('Pages/Tasks/List/List')))
 const Financial = withSuspense(lazy(() => import('Pages/Financial/Financial')))
+const Fees = withSuspense(lazy(() => import('Pages/Fees/Fees')))
 const FinancialProcess = withSuspense(lazy(() => import('Pages/NewProcess/Tabs/FinanceProcess/FinanceProcess')))
 const FinancialCategories = withSuspense(lazy(() => import('Pages/Financial/Category/Category')))
 const FinancialAccounts = withSuspense(lazy(() => import('Pages/Financial/Accounts/Accounts')))
@@ -217,6 +218,12 @@ export const PRIVATE_ROUTES: RoutesTypes[] = [
   {
     path: '/financial/accounts',
     element: FinancialAccounts,
+    plan_module: 'Financial',
+    permission: 'financial'
+  },
+  {
+    path: '/fees',
+    element: Fees,
     plan_module: 'Financial',
     permission: 'financial'
   },
