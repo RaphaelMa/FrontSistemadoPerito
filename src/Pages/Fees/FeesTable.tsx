@@ -1,13 +1,11 @@
-import React from 'react';
-import 'antd/dist/antd.css';
-import { Space, Switch, Table } from 'antd';
+import React, { useEffect, useState } from 'react';
+import { Space, Switch, Table, Button } from 'antd';
+import styled from 'styled-components';
+import { theme } from 'Styles/theme'
+import { FeesType } from './types';
+import { ImportOutlined } from '@ant-design/icons';
+
 const columns = [
-  {
-    title: 'Id',
-    dataIndex: 'Id',
-    key: 'Id',
-    render: (text: boolean | React.ReactChild | React.ReactFragment | React.ReactPortal | null | undefined) => <a>{text}</a>,
-  },
   {
     title: 'Processo Judicial',
     dataIndex: 'processoJudicial',
@@ -26,37 +24,48 @@ const columns = [
   {
     title: 'Ações',
     key: 'action',
-    render: (_: any, record: { name: string | number | boolean | {} | React.ReactElement<any, string | React.JSXElementConstructor<any>> | React.ReactNodeArray | React.ReactPortal | null | undefined; }) => (
+    render: (_: any, record: any) => (
       <Space size="middle">
-       <Switch />
+        <Switch 
+          size="small"
+        />
+        <Button
+          type="text"
+          icon={<LinkIcon style={{ color: theme.colors.primary }}/>}
+          target="_blank"
+          rel="noopener noreferrer"
+        />
       </Space>
     ),
   },
 ];
-const data = [
-  {
-    key: '1',
-    name: 'John Brown',
-    age: 32,
-    address: 'New York No. 1 Lake Park',
-    tags: ['nice', 'developer'],
-  },
-  {
-    key: '2',
-    name: 'Jim Green',
-    age: 42,
-    address: 'London No. 1 Lake Park',
-    tags: ['loser'],
-  },
-  {
-    key: '3',
-    name: 'Joe Black',
-    age: 32,
-    address: 'Sidney No. 1 Lake Park',
-    tags: ['cool', 'teacher'],
-  },
-];
 
-const FeesTable = () => <Table columns={columns} dataSource={data} />;
+const FeesTable = () => {
+  const [fees, setFees] = useState<FeesType[]>([]);
+
+  useEffect(() => {
+    fetch("http://localhost:3001/dashboard")
+      .then(response => response.json())
+      .then(data => {
+        console.log(data)
+      setFees(data)
+    })
+  }, [fees])
+
+  return (
+    <>
+      <Table 
+        style={{ border: '1px solid #d9d9d9'}}
+        columns={columns}
+        dataSource={fees}
+      />
+    </>
+  )
+} 
 
 export default FeesTable;
+
+const LinkIcon = styled(ImportOutlined)`
+  transform: rotateZ(3.142rad);
+  cursor: pointer;
+`

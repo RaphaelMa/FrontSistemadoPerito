@@ -10,7 +10,7 @@ export type QueryPayload = {
     pay: number,
     receive: number,
     total: number,
-    totalRecepetValue: number
+    totalRecepetValue?: number | ''
   }
 }
 

@@ -5,7 +5,7 @@ import { FinancialType } from './types'
 import moment, { defaultFormat } from 'moment'
 import { currencyFormatter } from 'Utils/formatters'
 import styled from 'styled-components'
-import { DeleteOutlined, EditOutlined, WalletOutlined } from '@ant-design/icons'
+import { DeleteOutlined, EditOutlined } from '@ant-design/icons'
 import { theme } from 'Styles/theme'
 
 type Props = {

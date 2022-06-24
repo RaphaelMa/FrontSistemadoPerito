@@ -1,35 +1,18 @@
-import React, {useState, useEffect} from 'react';
-import { Input, Select, Button, Switch } from 'antd';
+import React, { useEffect } from 'react';
+import { Input, Select } from 'antd';
 import styled from 'styled-components';
-import { FeesType } from './types';
-// import useGetFees from './useGetFees';
+
 import FeesTable from './FeesTable';
 const { Option } = Select;
 
 const Fees: React.FC = () => {
-  const [fees, setFees] = useState<FeesType[]>([]);
 
   const handleChange = (value: any) => {
     console.log(`selected ${value}`);
   };
   
-  const onChange = (checked: any) => {
-    console.log(`switch to ${checked}`);
-  };
-
-  useEffect(() => {
-    fetch("http://localhost:3001/dashboard")
-      .then(response => response.json())
-      .then(data => {
-        console.log(data)
-      setFees(data)
-    })
-  }, [])
-  
-  
   return (
-    <ContainerFees>
-
+    <>
       <Container>
         <Warpper>
           <Input type="text" placeholder="Informe o número do processo" />
@@ -45,13 +28,24 @@ const Fees: React.FC = () => {
           <Option value="pago">Pago</Option>
           <Option value="naopago">Não Pago</Option>
         </Select>
+        
+        <Select
+          defaultValue="ajg"
+          style={{
+            width: 120,
+            paddingLeft: 20
+          }}
+          onChange={handleChange}
+        >
+          <Option value="ajg">AJG</Option>
+        </Select>
         </Warpper>
-        <Warpper style={{ marginLeft: '20rem'}}>
-          <Button type="primary">Buscar</Button>
-        </Warpper>
+
       </Container>
+      <ContainerFees>
         <FeesTable />
-    </ContainerFees>
+      </ContainerFees>
+    </>
   );
 }
 
@@ -64,12 +58,13 @@ const Container = styled.div`
   grid-column-gap: 20px;
   grid-row-gap: 0px;
 
-  margin-left: 4rem;
+  margin-left: 2rem;
 `;
 
 const Warpper = styled.div``;
 
 const ContainerFees = styled.div`
+  margin-top: 20px;
   height: 100%;
   width: 100%;
   padding: 2rem;

@@ -14,8 +14,8 @@ const useExportData = (items: FinancialType[]) => {
     { name: 'Valor', key: 'value', render: (financial) => currencyFormatter(financial.value, { cents: true }) },
     { name: 'Desconto', key: 'discount', render: (financial) => currencyFormatter(financial.discount, { cents: true }) },
     { name: 'Total', key: 'total', render: (financial) => currencyFormatter(financial.total, { cents: true }) },
-    { name: 'Qtd. Parcelas', key: 'porcentReceptiValue', render: (financial) =>  currencyFormatter(financial.value, { cents: true  }) },
-    { name: 'Valor a Receber Parcelado', key: 'recepetPartial', render: (financial) =>  currencyFormatter(financial.value, { cents: true  }) }
+    { name: 'Qtd. Parcelas', key: 'porcentReceptiValue', render: (financial) =>  currencyFormatter(financial.porcentReceptiValue, { cents: true  }) },
+    { name: 'Valor a Receber Parcelado', key: 'recepetPartial', render: (financial) =>  currencyFormatter(financial.recepetPartial, { cents: true  }) }
   ], [])
 
   const exportFile = useCallback(() => {

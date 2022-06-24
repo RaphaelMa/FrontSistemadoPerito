@@ -101,7 +101,7 @@ const useColumns = ({ openDeadlineModal, type }: UseColumnsProps) => {
 
     if (type === 'overdue') {
       const new_column = {
-        title: 'Dias em Atrazo',
+        title: 'Dias em Atraso',
         dataIndex: 'deadeLine_days',
         ellipsis: true,
         key: 'deadeLine_days',

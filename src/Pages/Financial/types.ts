@@ -27,5 +27,5 @@ export type FinancialType = {
   partialReceipt: number,
   porcentReceptiValue: number,
   recepetPartial: number,
-  totalRecepetValue?: number
+  totalRecepetValue?: number | ''
 }

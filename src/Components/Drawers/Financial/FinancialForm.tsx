@@ -7,11 +7,8 @@ import ProcessInput from 'Components/Inputs/ProcessInput/ProcessInput'
 import PersonInput from 'Components/Inputs/PersonInput/PersonInput'
 import MovementInput from 'Components/Inputs/Movements/Movements'
 import CurrencyInput from 'Components/Inputs/CurrencyInput'
-import CurrencyInputNewFinance from 'Components/Inputs/CurrencyInputNewFinance';
 import moment from 'moment'
 import { Collapse } from 'antd';
-import styled from 'styled-components'
-
 
 type Props = {
   form: FormInstance,
