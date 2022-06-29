@@ -1,56 +1,58 @@
 import React, { useEffect, useState } from 'react';
-import { Space, Switch, Table, Button } from 'antd';
+import { Space, Switch, Table } from 'antd';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { theme } from 'Styles/theme'
 import { FeesType } from './types';
 import { ImportOutlined } from '@ant-design/icons';
-
-const columns = [
-  {
-    title: 'Processo Judicial',
-    dataIndex: 'processoJudicial',
-    key: 'processoJudicial',
-  },
-  {
-    title: 'Valor Ajustado',
-    dataIndex: 'valorAjustado',
-    key: 'valorAjustado',
-  },
-  {
-    title: 'Status Pagamento',
-    dataIndex: 'statusPayment',
-    key: 'statusPayment',
-  },
-  {
-    title: 'Ações',
-    key: 'action',
-    render: (_: any, record: any) => (
-      <Space size="middle">
-        <Switch 
-          size="small"
-        />
-        <Button
-          type="text"
-          icon={<LinkIcon style={{ color: theme.colors.primary }}/>}
-          target="_blank"
-          rel="noopener noreferrer"
-        />
-      </Space>
-    ),
-  },
-];
+import Axios from 'axios';
 
 const FeesTable = () => {
   const [fees, setFees] = useState<FeesType[]>([]);
 
   useEffect(() => {
-    fetch("http://localhost:3001/dashboard")
-      .then(response => response.json())
-      .then(data => {
-        console.log(data)
-      setFees(data)
-    })
-  }, [fees])
+    Axios.get('http://localhost:3001/dashboard')
+      .then((response) => {
+        setFees(response.data)
+      });  
+  }, [])
+
+  async function getProcessId(processNumber: string){
+    const process = await Axios.get(`http://localhost:3333/caiunaconta?processNumber=${processNumber}`);
+    console.log(process.data);
+  }
+
+  const columns = [
+    {
+      title: 'Processo Judicial',
+      dataIndex: 'processoJudicial',
+      key: 'processoJudicial',
+    },
+    {
+      title: 'Valor Ajustado',
+      dataIndex: 'valorAjustado',
+      key: 'valorAjustado',
+    },
+    {
+      title: 'Status Pagamento',
+      dataIndex: 'statusPayment',
+      key: 'statusPayment',
+    },
+    {
+      title: 'Ações',
+      key: 'action',
+      render: (_: any, record: any) => (
+        <Space size="middle">
+          <Switch 
+            size="small"
+          />
+          <button onClick={() => getProcessId('03000048620158240068')}>
+            <LinkIcon style={{ color: theme.colors.primary }} />
+          </button>
+        </Space>
+      ),
+    },
+  ];
 
   return (
     <>

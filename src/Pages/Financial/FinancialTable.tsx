@@ -123,11 +123,11 @@ export default FinancialTable
 const StyledTable = styled(Table)`
 
 .ant-table-container, .ant-spin-nested-loading, .ant-table, .ant-spin-container {
-  height: calc(100% - 34px);
+  height: calc(100% - 44px);
 
     .ant-pagination {
       margin: 0 0 10px 0;
-      margin-top: 40px;
+      margin-top: 20px;
     }
   }
 
