@@ -6,20 +6,34 @@ import { theme } from 'Styles/theme'
 import { FeesType } from './types';
 import { ImportOutlined } from '@ant-design/icons';
 import Axios from 'axios';
+import useUpdatePushStatus from './useGetProcess'
+import useGetCompany from './useGetCompany'
+
+import { Navigate, useNavigate } from 'react-router-dom';
 
 const FeesTable = () => {
+  const navigate = useNavigate()
   const [fees, setFees] = useState<FeesType[]>([]);
+  const [updatePushStatus] = useUpdatePushStatus();
+  const [processRedirect, setProcessRedirect] = useState();
 
   useEffect(() => {
-    Axios.get('http://localhost:3001/dashboard')
+    const company_id = '5f897e6a57f2261d750282cb'
+    Axios.get(`http://localhost:3001/dashboard?company_id=${company_id}`)
       .then((response) => {
         setFees(response.data)
       });  
   }, [])
 
   async function getProcessId(processNumber: string){
-    const process = await Axios.get(`http://localhost:3333/caiunaconta?processNumber=${processNumber}`);
-    console.log(process.data);
+    const { data } = await updatePushStatus(processNumber)
+    setProcessRedirect(data._id)
+
+    if (data) {
+      navigate(`/process/${data._id}`)
+    } else {
+      alert("Processo não encontrado no Sistema do Perito")
+    }
   }
 
   const columns = [
@@ -40,13 +54,14 @@ const FeesTable = () => {
     },
     {
       title: 'Ações',
+      dataIndex: 'processoJudicial',
       key: 'action',
-      render: (_: any, record: any) => (
+      render: (record: any) => (
         <Space size="middle">
           <Switch 
             size="small"
           />
-          <button onClick={() => getProcessId('03000048620158240068')}>
+          <button onClick={() => getProcessId(record)}>
             <LinkIcon style={{ color: theme.colors.primary }} />
           </button>
         </Space>
