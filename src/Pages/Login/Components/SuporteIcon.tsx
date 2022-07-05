@@ -5,7 +5,7 @@ const SuporteIcon: React.FC = () => {
   return (
    <Container>
         <a href="https://front-suporte-perito.herokuapp.com/" target='blank'>
-            <Title style={{ color: '#FFF', marginTop: '26px', marginLeft: '8px'}}>SUPORTE</Title>
+            <Title style={{ color: '#FFF', marginTop: '22px', marginLeft: '8px'}}>SUPORTE</Title>
         </a>
    </Container>
   )

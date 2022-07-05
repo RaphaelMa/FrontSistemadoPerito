@@ -8,8 +8,8 @@ import store from 'Redux/UserReducer'
 const { dispatch } = store
 
 const baseURL = process.env.NODE_ENV === 'production'
-  ? 'http://localhost:3333'
-  : 'http://localhost:3333'
+  ? 'http://test.sistemadoperito.com.br/'
+  : 'http://test.sistemadoperito.com.br/'
 
 const DEFAULT_CONFIGURATION = {
   baseURL: baseURL,

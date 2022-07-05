@@ -1,11 +1,17 @@
 import useAxios from 'axios-hooks'
 
 type QueryPayload = {
-  _id: string
+  _id: string | any,
 }
 
 const useGetCompany = () => {
-  return useAxios<QueryPayload[]>({ url: '/company', method: "GET" }, { manual: false })
+  const [{ loading }, execute] = useAxios<QueryPayload>({ method: "GET" }, { manual: true })
+
+  const mutation = () => execute({
+    url: `/company`,
+  })
+
+  return [mutation, { loading: loading }] as const
 }
 
 export default useGetCompany
