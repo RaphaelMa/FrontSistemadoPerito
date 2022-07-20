@@ -28,4 +28,12 @@ export type FinancialType = {
   porcentReceptiValue: number,
   recepetPartial: number,
   totalRecepetValue?: number | ''
+  installmentsList?: InstallmentType[],
+}
+
+type InstallmentType = {
+  _id?: string,
+  installment_id: string,
+  installment_status: string,
+  installment_value: number
 }

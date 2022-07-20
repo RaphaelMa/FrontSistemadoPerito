@@ -70,17 +70,16 @@ const FinancialTable: React.FC<Props> = (props) => {
 
   const columns = useColumns({ handleMovementPress })
 
-  function loopPartials(porcentReceptiValue: number, totalRecepetValue: any): any{
-    const valueParcelas = currencyFormatter(totalRecepetValue, { cents: true });
-    let parcelas = [];
-    for (var i = 1; i <= porcentReceptiValue; i++) {
+  function loopPartials(installmentsList: any): any{
+    let parcelas: JSX.Element[] = [];
+    installmentsList.map((installment: { _id: string | null | undefined,  installment_id: string, installment_value: number }) => {
       parcelas.push(
-        <Detail key={i}>
+        <Detail key={installment._id}>
           <Dot />
-          <div>{i}x - {valueParcelas}</div>
+          <div>{installment.installment_id}x - {currencyFormatter(installment.installment_value, { cents: true })}</div>
         </Detail>
       );
-    }
+    })
     return parcelas;
   }
 
@@ -106,10 +105,10 @@ const FinancialTable: React.FC<Props> = (props) => {
         scroll={{ y: 2000 }}
         expandable={{
           rowExpandable: ({ porcentReceptiValue, totalRecepetValue }) => (!!porcentReceptiValue || !!totalRecepetValue),
-          expandedRowRender: ({ _id, porcentReceptiValue, totalRecepetValue }) => (
+          expandedRowRender: ({ _id, porcentReceptiValue, totalRecepetValue, installmentsList }) => (
             <Details key={_id}>
               <p><b>Parcelas:</b></p>
-              {loopPartials(porcentReceptiValue, totalRecepetValue)}
+              {loopPartials(installmentsList)}
             </Details>
           )
         }}
